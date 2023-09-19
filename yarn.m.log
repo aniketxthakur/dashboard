@@ -1,0 +1,112 @@
+ <div>
+      <div className="w-3/12">
+        <aside
+          id="logo-sidebar"
+          className={`${
+            open
+              ? " backdrop-blur-md bg-blue/30 transform-none sm:w-20 bg-gray-50"
+              : "-translate-x-full bg-gray-50"
+          } fixed top-0 left-0 z-40 w-60 h-screen  transition-transform  border-r border-gray-200 sm:translate-x-0 "`}
+          aria-label="Sidebar"
+        >
+          <div className="h-full px-3 pb-4 overflow-y-auto bg-black text-white">
+            <div className="space-y-2 font-medium">
+              <div className="flex items-center justify-start">
+                <button className="flex ml-1 mt-5 md:mr-24">
+                  <span
+                    className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap  sm:visible invisible "
+                    onClick={() => setOpen(!open)}
+                  >
+                    CHM
+                  </span>
+                  <span
+                    className="self-center text-xl font-semibold fixed  sm:invisible visible "
+                    onClick={() => setOpen(!open)}
+                  >
+                    {" "}
+                    Close{" "}
+                  </span>
+                </button>
+              </div>
+              <div className="pt-5">
+                <ul>
+                  <li>
+                    <a
+                      href="#"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                      role="menuitem"
+                    >
+                      Dashboard
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+
+
+
+    button
+     {/* <button className="flex ml-1 mt-5 md:mr-24">
+                  <span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap  sm:visible invisible " onClick={() => setOpen(!open)}>CHM</span>
+                  <span className="self-center text-xl font-semibold fixed  sm:invisible visible " onClick={() => setOpen(!open)}> Close </span>
+                </button> */}
+
+
+button
+                <div className={` sticky top-0 z-50 ml-0  bg-gray-100  ${open ? "sm:ml-24" : "sm:ml-64"}`}>
+        <button className={`text-2xl visible ${open ? "sm:hidden" : ""}`} onClick={() => setOpen(!open)}><AiOutlineMenuFold/></button>
+        <p>Navbar</p>
+      </div>
+
+
+
+
+
+
+
+
+
+
+      TAB
+
+      import React, { useState } from "react";
+import ButtonArrow from "../button/buttonArrow";
+import Card from "../card/card";
+import { AiOutlineStock } from 'react-icons/ai';
+
+const Tab = () => {
+    const [openTab, setOpenTab] = useState<any>(1);
+
+    return (
+        <>
+            <div className="inline-flex rounded-md bg-gray-100 text-gray-400 text-sm p-1 shadow-sm mt-2">
+                <button className={"px-3 py-1 rounded-md " + (openTab === 1 ? "text-black bg-white shadow-md shadow-gray-300 " : "")} onClick={() => setOpenTab(1)}>Overview</button>
+                <button className={"px-3 py-1 rounded " + (openTab === 2 ? "text-black bg-white shadow-md shadow-gray-300" : "")} onClick={() => setOpenTab(2)}>Analytics</button>
+                <button className={"px-3 py-1 rounded " + (openTab === 3 ? "text-black bg-white shadow-md shadow-gray-300" : " ")} onClick={() => setOpenTab(3)}>Reports</button>
+            </div>
+
+             {openTab === 1 && (
+                <div className="block lg:absolute relative">
+                    Overview Content
+                </div>
+            )}
+            {openTab === 2 && (
+                <div className="block lg:absolute relative mt-3">
+                    Analytics Content
+                </div>
+            )}
+            {openTab === 3 && (
+                <div className="block lg:absolute relative mt-3">
+                    Reports Content
+                </div>
+            )}
+        </>
+    );
+}
+
+export default Tab;
